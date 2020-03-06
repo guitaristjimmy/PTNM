@@ -17,9 +17,3 @@ PTNM started with an idea from CNN. CNN is the extraction of frequency features 
 PTNM used vectors that extracted eight features instead of the Convolution Layer, and for ways to reflect user evaluations of frequency features on behalf of the Neural Network, see Page Rank Algorithm. Based on user evaluation, weights are obtained for frequency characteristics and then re-recommended by ranking them.
 
 Please refer to the report for more information.
-
-8 Feature Vectors >>
-  Chromagram, Tonnetz, MFCC, MelSpectogram, Spectral Contrast, Spectral Bandwidth, Spectral Centroid, and Melody Feature
-
-It expressed all music in eight-dimensional vectors 
-and then used a method to recommend music based on the weight of the user's assessment.
