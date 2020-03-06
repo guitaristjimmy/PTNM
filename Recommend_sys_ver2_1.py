@@ -602,8 +602,8 @@ class Recommend_sys:
 
 class PTNM_Recommend(Recommend_sys):
     def __init__(self, call_list):
-        super().__init__(n_path='./DB/name_pickle',
-                          v_path='./DB/value_pickle')
+        super().__init__(n_path='D:/Python_Note/Project/Kisung/PTNM_Feature_Extract/DB/name_pickle',
+                          v_path='D:/Python_Note/Project/Kisung/PTNM_Feature_Extract/DB/value_pickle')
         self.input_songs = call_list
         super().input_name(name_list=self.input_songs)
         self.end_flag = 0
@@ -642,18 +642,17 @@ class PTNM_Recommend(Recommend_sys):
         super().cal_rank()
         e = time.time()
         print('time cal rank :: ', e-s)
-        self.recom_song_list = super().recommand_song()
+        recom_song_list = super().recommand_song()
 
-    def feedback_input(self, feedback):
-        # feedback = []
-        # self.iter_count += 1
-        # print('PTNM 추천 top 5 ::', self.iter_count, '번째 추천!!')
-        # print(recom_song_list)
-        # for i in range(0, len(recom_song_list)):
-        #     feedback.append(float(input(recom_song_list[i]+'의 평가를 입력하세요 :: ')))
-        # # print('feedback :: ', feedback)
+        feedback = []
+        self.iter_count += 1
+        print('PTNM 추천 top 5 ::', self.iter_count, '번째 추천!!')
+        print(recom_song_list)
+        for i in range(0, len(recom_song_list)):
+            feedback.append(float(input(recom_song_list[i]+'의 평가를 입력하세요 :: ')))
+        # print('feedback :: ', feedback)
 
-        super().update_feedback(feedback_data=feedback, song_name=self.recom_song_list)
+        super().update_feedback(feedback_data=feedback, song_name=recom_song_list)
 
     def recom_steps(self):
         # Determine Song Territory -------------------------------------------------------------------------------------
@@ -686,25 +685,25 @@ class PTNM_Recommend(Recommend_sys):
         super().cal_rank()
         e = time.time()
         print('time set class,var weight :: ', e-s)
-        self.recom_song_list = super().recommand_song()
+        recom_song_list = super().recommand_song()
 
-        # feedback = []
-        #
-        # self.iter_count += 1
-        # print('PTNM 추천 top 5 ::', self.iter_count, '번째 추천!!')
-        # print(recom_song_list)
-        # print('\t\t\t\t 종료키는 \'120\' 입니다.\n')
-        # for i in range(0, len(recom_song_list)):
-        #     input_feedback = float(input(recom_song_list[i]+'의 평가를 입력하세요 :: '))
-        #     if input_feedback != 120:
-        #         feedback.append(input_feedback)
-        #     else:
-        #         print('-----:: 추천을 종료합니다. ::-----')
-        #         self.end_flag = 1
-        #         return 0
+        feedback = []
+
+        self.iter_count += 1
+        print('PTNM 추천 top 5 ::', self.iter_count, '번째 추천!!')
+        print(recom_song_list)
+        print('\t\t\t\t 종료키는 \'120\' 입니다.\n')
+        for i in range(0, len(recom_song_list)):
+            input_feedback = float(input(recom_song_list[i]+'의 평가를 입력하세요 :: '))
+            if input_feedback != 120:
+                feedback.append(input_feedback)
+            else:
+                print('-----:: 추천을 종료합니다. ::-----')
+                self.end_flag = 1
+                return 0
         # print('feedback :: ', feedback)
 
-        # super().update_feedback(feedback_data=feedback, song_name=recom_song_list)
+        super().update_feedback(feedback_data=feedback, song_name=recom_song_list)
 
 
 if __name__ == '__main__':

@@ -21,30 +21,6 @@ class MyWindow(QWidget):
         """
         필요한 위젯들 만들기
         """
-        self.lineEdit1 = QLineEdit(self)  # 사용자가 입력한 노래 5곡 입력받음
-        self.lineEdit2 = QLineEdit(self)
-        self.lineEdit3 = QLineEdit(self)
-        self.lineEdit4 = QLineEdit(self)
-        self.lineEdit5 = QLineEdit(self)
-
-        self.input1 = QLabel(self)
-        self.input2 = QLabel(self)
-        self.input3 = QLabel(self)
-        self.input4 = QLabel(self)
-        self.input5 = QLabel(self)
-
-        self.output1 = QLabel(self)     # 추천한 노래 5곡
-        self.output2 = QLabel(self)
-        self.output3 = QLabel(self)
-        self.output4 = QLabel(self)
-        self.output5 = QLabel(self)
-
-        self.output_more1 = QLabel(self)        # 추천한 노래 5곡
-        self.output_more2 = QLabel(self)
-        self.output_more3 = QLabel(self)
-        self.output_more4 = QLabel(self)
-        self.output_more5 = QLabel(self)
-
         self.lineEdit = []
         self.input = []
         self.output = []
@@ -330,15 +306,6 @@ class MyWindow(QWidget):
 
         self.stack.setCurrentIndex(i)
 
-    def comboboxIndexChanged(self):
-        self.grade1 = self.combo1.currentIndex() -10
-        self.grade2 = self.combo2.currentIndex() -10
-        self.grade3 = self.combo3.currentIndex() -10
-        self.grade4 = self.combo4.currentIndex() -10
-        self.grade5 = self.combo5.currentIndex() -10
-
-        print(self.grade1, self.grade2, self.grade3, self.grade4, self.grade5)
-
     def recommend(self):
         feedback_estim = []
         for i in range(0, 5):
@@ -353,16 +320,6 @@ class MyWindow(QWidget):
             self.output_more[i].setFont(QFont('PFStardust', 15))
 
         self.display(4)
-
-    def re_comboboxIndexChanged(self):
-        self.grade_2nd_1 = self.combo_2nd_1.currentIndex() -10
-        self.grade_2nd_2 = self.combo_2nd_2.currentIndex() -10
-        self.grade_2nd_3 = self.combo_2nd_3.currentIndex() -10
-        self.grade_2nd_4 = self.combo_2nd_4.currentIndex() -10
-        self.grade_2nd_5 = self.combo_2nd_5.currentIndex() -10
-
-        print(self.grade_2nd_1, self.grade_2nd_2, self.grade_2nd_3, self.grade_2nd_4, self.grade_2nd_5)
-
 
     def re_recommend(self):
         feedback_estim = []
